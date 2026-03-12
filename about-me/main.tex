@@ -1,0 +1,211 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,sans]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% moderncv themes
+\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+%\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+
+
+\renewcommand{\familydefault}{\sfdefault} % NEWWWW
+
+% character encoding
+\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
+%\usepackage{CJKutf8}                              % if you need to use CJK to typeset your resume in Chinese, Japanese or Korean
+
+% adjust the page margins
+%\usepackage[scale=0.75]{geometry}
+\usepackage[scale=0.75, left=0.7in, right=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{booktabs}
+
+%\usepackage{etoolbox}
+%\appto\UrlFont{\footnotesize}
+
+%\setlength{\hintscolumnwidth}{3.5cm}                % if you want to change the width of the column with the dates
+\setlength{\hintscolumnwidth}{1.5cm}                % if you want to change the width of the column with the dates
+%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+
+\name{Jens Einar}{\\Bremnes}
+\title{CV}                               % optional, remove / comment the line if not wanted
+%\address{Elgtråkket 19}{9512 Alta}%{Norge}
+\social[github]{jensbremnes}
+\phone[mobile]{+47 418 51 428}                   % optional, remove / comment the line if not wanted
+\email{jensbremnes@gmail.com}                               % optional, remove / comment the line if not wanted
+\homepage{www.linkedin.com/in/jensbremnes/}
+\photo[90pt][0.4pt]{jens_einar_bremnes_photo_cropped.jpg} 
+%\photo[90pt][0.4pt]{jens_einar_bremnes_photo_cropped.jpg}                       % optional, remove / comment the line if not wanted; '64pt' is the 
+%\quote{Some quote}                                 % optional, remove / comment the line if not wanted
+
+% to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
+%\makeatletter
+%\renewcommand*{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}
+%\makeatother
+%\renewcommand*{\bibliographyitemlabel}{[\arabic{enumiv}]}% CONSIDER REPLACING THE ABOVE BY THIS
+
+% bibliography with mutiple entries
+%\usepackage{multibib}
+%\newcites{book,misc}{{Books},{Others}}
+%----------------------------------------------------------------------------------
+%            content
+%----------------------------------------------------------------------------------
+\begin{document}
+%\begin{CJK*}{UTF8}{gbsn}                          % to typeset your resume in Chinese using CJK
+%-----       resume       ---------------------------------------------------------
+\makecvtitle
+
+\vspace{-5mm}
+
+\cvitem{}{Doktorgrad og mastergrad i marin teknikk med spesialisering innen marin kybernetikk. Variert erfaring med programvareutvikling, forskning, feltarbeid og formidling i tett samarbeid med sluttbrukere innen forsvar, industri og marin biologi. Engasjert, løsningsorientert, hands-on.}
+
+\section{Utdanning}
+\cventry{01.2019--01.2024}{Doktorgrad (Ph.D) i marin teknikk, marin kybernetikk}{NTNU}{Trondheim}{}{Doktoravhandling: \textit{Safe autonomy in marine robotics} \\ Stipendiat ved institutt for marin teknikk (IMT NTNU) og ved senter for fremragende forskning i autonome marine operasjoner og systemer (SFF AMOS). Her forsket jeg på og utviklet nye metoder for autonom risikoforstålse og risikostyring gjennom tverrfaglig og praktisk arbeid i robotikk, risikoanalyse og kunstig intelligens. Hovedmålet med oppgaven var å øke intelligensen til roboter ved å tolke verden rundt seg, slik at de i større grad kan håndtere farer selv underveis i et oppdrag, noe som er spesielt viktig i tilfeller med krevende miljø og/eller lav grad av sanntidskommunikasjon med operatører. \\}
+
+\cventry{08.2014--07.2019}{Mastergrad (M.Sc.) i teknikk, marin kybernetikk}{NTNU}{Trondheim}{}{Masteravhandling: \textit{Towards robust autonomy of underwater vehicles in Arctic operations} \\Gjennomsnittskarakter: 4.3 (B+)\\ De første årene av studieprogrammet dekket et bredt spekter av ingeniøremner, blant annet matematikk, mekanikk, hydrodynamikk, kontrollteori og programmering. De to siste årene valgte jeg å fordype meg i avansert reguleringsteknikk, robotikk, risikoanalyser og kunstig intelligens. På mitt femte år begynte jeg på en integrert doktorgrad, hvor masteroppgaven ble tilpasset doktorgradstemaet på bruk av risikoanalyse og kunstig intelligens i marine autonome systemer. Jeg tok også noen ekstrafag.\\} 
+
+\cventry{01.2020--07.2020}{Utveksling (Ph.D.)}{Department of Electrical and Computer Engineering, UCB}{Berkeley}{}{Våren 2020 fullførte jeg et utvekslingsopphold ved University of Berkeley, California, institutt for Electrical Engineering and Computer Science. Her studerte jeg nåbarhetsanalyser, maskinlæring ved bruk av Gaussiske prosesser og modellprediktiv kontroll for robotikk.\\} 
+
+\cventry{08.2019--09.2019}{Utveksling (Ph.D.)}{Arctic Technology, UNIS}{Longyearbyen}{}{Høsten 2019 fullførte jeg et utvekslingsopphold ved UNIS på Svalbard, hvor jeg tok doktorgradsfaget \textit{AT-834 Arctic Marine Measurements Techniques, Operations and Transport}. \\} 
+
+\cventry{01.2018--06.2018}{Utveksling (M.Sc.)}{Department of Electrical and Computer Engineering, IST}{Lisboa}{}{Våren 2018 hadde jeg et utvekslingssemester i Lisboa ved Instituto Superior Técnico, institutt for Electrical and Computer Engineering. Her tok jeg fag innen robotikk, optimalisering, kontrollteori og offshore vindkraft. Jeg tok også språkkurs i portugisisk.}
+
+\newpage
+
+\section{Erfaring}
+%\subsection{Vocational}
+
+%\cventry{08.2019--dags dato}{Labassistent}{Applied Underwater Robotics Laboratory, NTNU}{Trondheim}{}{AUR-lab innehar en flåte av AUV, ROV og USV. Som labassistent her har jeg vært med på vedlikehold og drift av denne flåten. Dette innebærer feltarbeid og tokt, test og integrasjon av nytt utstyr, opplæring av bruk til andre studenter, vedlikehold, og reperasjon. \\}
+
+\cventry{09.2025--dags dato}{Ingeniør}{GeoNord AS}{Alta}{}{Som ingeniør i GeoNord jobber jeg med tjenester innen kartlegging av sjøbunn og terreng. Dette innebærer innsamling av data i felt med laserskanner og multistråleekkolodd fra drone og båt, samt prosessering og analyse av data. Typiske sluttprodukter inkluderer 3D kart, 3D modeller, punktskyer, ortofoto, kotekart og volumberegninger. \\}
+
+\cventry{05.2023--09.2025}{Forsker}{Forsvarets Forskningsinstitutt (FFI)}{Kjeller}{}{Som forsker hos FFI jobbet jeg med forskning og utvikling på autonomi for AUV. Dette inkluderte utvikling av nye algoritmer for autonom planlegging og beslutningstaking, inkludert programvareutvikling med integrasjon på HUGIN AUV og brukergrensesnitt for operatører. Jeg jobbet i all hovedsak i C++, men også noe Python og MATLAB, hvor det ble lagt vekt på ryddig, dokumentert og testbar kode, som kunne overtas av industrien. Jeg var også regelmessig ute på tokt som operatør for å samle inn data, gjerne med FFIs forskningsskip H.U. Sverdrup II. En annen viktig del av jobben dreide som om forskningsformidling, som typisk ble gjort gjennom skriving av rapporter og vitenskapelige artikler og foredrag. I tillegg drev jeg med veiledning av masterstudenter og stipendiater i universitetssektoren. \\}
+
+\cventry{08.2019--05.2023}{Stipendiat}{Institutt for marin teknikk, NTNU}{Trondheim}{}{Forskning og utvikling av autonomi i marin robotikk, med spesielt fokus på risikostyring, kunstig intelligens og reguleringsteknikk. Programvareutvikling skjedde i all hovedsak i Python. Stipendiatet var fireårig, hvorav ett år var viet til pliktarbeid fordelt utover løpet. Som del av mitt pliktarbeid bidro jeg i Applied Underwater Robotics Laboratory (AUR-Lab) med drift og vedlikehold av AUV, USV og ROV, med tilhørende sensorsystemer. Inkludert i arbeidet var vitenskapelige tokt i Nordishavet, Svalbard, Mjøsa og Trøndelag, analyser av innhentet data, test og integrasjon av nytt utstyr, og opplæring av bruk til andre studenter. Videre var jeg vitenskapelig assistent i faget \textit{TMR4240 Marine reguleringssystemer}, hvor jeg bidro med veiledning og retting av øvinger og prosjekter. Jeg var også med å utvikle et nytt fag for masterstudenter, \textit{TMR06 Autonomous Marine Systems}, som ble undervist første gangen høsten 2020. Her var jeg med å utarbeide pensumliste, forelesningsnotater og prosjekt. I tillegg medveiledet jeg masterstudenter.\\}
+
+\cventry{08.2014--06.2019}{Rekrutteringsassistent}{Institutt for marin teknikk, NTNU}{Trondheim}{}{Ved siden av studiene jobbet jeg som rekrutteringsassistent med rekruttering av videregåendeelever til studieprogram for marin teknikk.\\}
+
+\cventry{08.2018--05.2019}{Studentassistent}{Institutt for marin teknikk, NTNU}{Trondheim}{}{Studentassistent i fagene \textit{TMR4240 Marine reguleringssystemer} og \textit{TMR4160 Datametoder for marintekniske anvendelser}. Arbeidsoppgavene bestod av veiledning og retting av øvinger og programmeringsprosjekter.\\}
+
+\cventry{06.2018--08.2018}{Sommervikar}{DNV GL Digital Assurance}{Trondheim}{}{Hos DNV GL Digital Assurance jobbet jeg med ReVolt, en testplattform for ubemannede skip. Dette innebar programvareutvikling i C++ og Python med Robot Operating System (ROS), i tillegg til vedlikehold av båten.\\}
+
+\cventry{01.2016-01.2018}{Vikarlærer}{Sandfallet Ungdsomsskole}{Alta}{}{Vikarlærer i matematikk og naturfag i januar 2016, 2017 og 2018 i 8.-10. trinn.\\}
+
+\cventry{06.2017--08.2017}{Sommervikar}{Equinor}{\textit{New Energy Solutions}}{Stavanger}{Hos Equinor jobbet jeg med design og parameterstudier av monopeler for store (10+ MW) bunnfaste offshore vindturbiner. Dette innebar modellering av sjømiljø og bunnforhold, strukturdesign og analyser i bruddgrensetilstand og utmattingsgrensetilstand.\\{}}
+
+\cventry{08.2015--05.2017}{Mentor}{ENT3R}{Trondheim}{}{To timer i uken bidro jeg med leksehjelp for en klasse med videregåendeelever i realfag. Vi hadde også hver uke morsomme eksperimenter, med realfagsrekruttering som formål. \\ {}}
+
+
+\cventry{06.2016--07.2016}{Sommerkurs}{Hyundai Heavy Industries}{Ulsan, South-Korea}{}{Sommerkurs på verdens største skipsverft. Kurset hadde kunnskapsformidling om verftsindustrien og kulturutfordringer ved vestlig-asiatisk industrisamarbeid som formål. \\{}}
+
+\cventry{09.2012--08.2015}{Tilkallingsvikar}{Grieg Seafood Finnmark AS}{Alta}{}{Fabrikkmedarbeider, hvor jeg jobbet med sortering av fisk basert på vekt og kvalitet, pakking og sløying. Jobbet som tilkallingsvikar, med sommerjobb i 2013, 2014 og 2015.}
+
+\vspace{4mm}
+
+\section{IT-ferdigheter}
+C++, Python, MATLAB, Simulink, ROS, Linux, Git, Docker, GIS, Dataanalyse, Datavisualisering
+%\begin{itemize}
+    %\item Python, C++, MATLAB, Simulink, ROS, UNIX, %Git
+%\end{itemize}
+
+
+%\newpage
+\vspace{4mm}
+
+\section{Vitenskapelige publikasjoner}
+
+\vspace{2mm}
+
+\begin{tabular}{@{}l r@{}}
+    \toprule
+    \textbf{Indikator} & \textbf{Oppnåelse*} \\
+    \midrule
+    Siteringer & 125 \\
+    h-indeks & 6 \\
+    Internationale fagfellevurderte tidsskriftartikler & 8 \\
+    Internasjonale konferansebidrag & 8 \\
+    \bottomrule
+\end{tabular} \vspace{2mm}\\
+\text{*}Google Scholar, 12-03-2026 \\
+Researcher unique identifier: \url{https://orcid.org/0000-0002-5917-5281}
+\\ \\
+Se eget dokument for detaljer om publikasjoner.
+
+%\small
+%\begin{itemize}
+    %\item Bremnes, Jens Einar; Thieme, Christoph Alexander; Sørensen, Asgeir Johan; Utne, Ingrid Bouwer; Norgren, Petter. (2020) A Bayesian Approach to Supervisory Risk Control of AUVs Applied to Under-Ice Operations. Marine Technology Society journal. vol. 54 (4).
+    %\item Bremnes, Jens Einar; Brodtkorb, Astrid Helene; Sørensen, Asgeir Johan. (2020) Hybrid observer concept for sensor fusion of sporadic measurements for underwater navigation. International Journal of Control, Automation and Systems. vol. 18.
+    %\item Bremnes, Jens Einar; Devonport, Alex; Yin, He; Arcak, Murat; Sørensen, Asgeir Johan; Utne, Ingrid Bouwer. (2020) Optimization-based planning and control of AUVs applied to adaptive sampling under ice. 2020 IEEE/OES Autonomous Underwater Vehicles Symposium (AUV).
+    %\item Bremnes, Jens Einar; Norgren, Petter; Sørensen, Asgeir Johan; Thieme, Christoph Alexander; Utne, Ingrid Bouwer. (2019) Intelligent risk-based under-ice altitude control for autonomous underwater vehicles. Proceedings of OCEANS 2019 MTS/IEEE SEATTLE.
+    %\item Bremnes, Jens Einar; Brodtkorb, Astrid H.; Sørensen, Asgeir Johan. (2019) Sensor-based hybrid translational observer for underwater navigation. IFAC-PapersOnLine. vol. 52 (21).
+%\end{itemize}
+
+%\section{Interesser}
+%\cvitem{Musikk}{Spiller både gitar og trommer.}
+%\cvitem{Trening}{Description}
+%\cvitem{Øl}{Description}
+%\cvitem{Båt}{Description}
+%\cvitem{Båt}{Description}
+
+
+%\section{Extra 2}
+%\cvlistdoubleitem{Item 1}{Item 4}
+%\cvlistdoubleitem{Item 2}{Item 5\cite{book1}}
+%\cvlistdoubleitem{Item 3}{Item 6. Like item 3 in the single column list before, this item is particularly long to wrap over several lines.}
+
+%\section{References}
+%\begin{cvcolumns}
+%  \cvcolumn{Category 1}{\begin{itemize}\item Person 1\item Person 2\item Person 3\end{itemize}}
+ % \cvcolumn{Category 2}{Amongst others:\begin{itemize}\item Person 1, and\item Person 2\end{itemize}(more upon request)}
+%  \cvcolumn[0.5]{All the rest \& some more}{\textit{That} person, and \textbf{those} also (all available upon request).}
+%\end{cvcolumns}
+
+% Publications from a BibTeX file without multibib
+%  for numerical labels: \renewcommand{\bibliographyitemlabel}{\@biblabel{\arabic{enumiv}}}% CONSIDER MERGING WITH PREAMBLE PART
+%  to redefine the heading string ("Publications"): \renewcommand{\refname}{Articles}
+\nocite{*}
+\bibliographystyle{plain}
+%\bibliography{publications}                        % 'publications' is the name of a BibTeX file
+
+% Publications from a BibTeX file using the multibib package
+%\section{Publications}
+%\nocitebook{book1,book2}
+%\bibliographystylebook{plain}
+%\bibliographybook{publications}                   % 'publications' is the name of a BibTeX file
+%\nocitemisc{misc1,misc2,misc3}
+%\bibliographystylemisc{plain}
+%\bibliographymisc{publications}                   % 'publications' is the name of a BibTeX file
+
+%\clearpage
+%-----       letter       ---------------------------------------------------------
+% recipient data
+%\recipient{Company Recruitment team}{Company, Inc.\\123 somestreet\\some city}
+%\date{January 01, 1984}
+%\opening{Dear Sir or Madam,}
+%\closing{Yours faithfully,}
+%\enclosure[Attached]{curriculum vit\ae{}}          % use an optional argument to use a string other than "Enclosure", or redefine \enclname
+%\makelettertitle
+
+%Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ullamcorper neque sit amet lectus facilisis sed luctus nisl iaculis. Vivamus at neque arcu, sed tempor quam. Curabitur pharetra tincidunt tincidunt. Morbi volutpat feugiat mauris, quis tempor neque vehicula volutpat. Duis tristique justo vel massa fermentum accumsan. Mauris ante elit, feugiat vestibulum tempor eget, eleifend ac ipsum. Donec scelerisque lobortis ipsum eu vestibulum. Pellentesque vel massa at felis accumsan rhoncus.
+
+%Suspendisse commodo, massa eu congue tincidunt, elit mauris pellentesque orci, cursus tempor odio nisl euismod augue. Aliquam adipiscing nibh ut odio sodales et pulvinar tortor laoreet. Mauris a accumsan ligula. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse vulputate sem vehicula ipsum varius nec tempus dui dapibus. Phasellus et est urna, ut auctor erat. Sed tincidunt odio id odio aliquam mattis. Donec sapien nulla, feugiat eget adipiscing sit amet, lacinia ut dolor. Phasellus tincidunt, leo a fringilla consectetur, felis diam aliquam urna, vitae aliquet lectus orci nec velit. Vivamus dapibus varius blandit.
+
+%Duis sit amet magna ante, at sodales diam. Aenean consectetur porta risus et sagittis. Ut interdum, enim varius pellentesque tincidunt, magna libero sodales tortor, ut fermentum nunc metus a ante. Vivamus odio leo, tincidunt eu luctus ut, sollicitudin sit amet metus. Nunc sed orci lectus. Ut sodales magna sed velit volutpat sit amet pulvinar diam venenatis.
+
+%Albert Einstein discovered that $e=mc^2$ in 1905.
+
+%\[ e=\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^n \]
+
+%\makeletterclosing
+
+%\clearpage\end{CJK*}                              % if you are typesetting your resume in Chinese using CJK; the \clearpage is required for fancyhdr to work correctly with CJK, though it kills the page numbering by making \lastpage undefined
+\end{document}
+

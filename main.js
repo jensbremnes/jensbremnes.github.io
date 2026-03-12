@@ -1,5 +1,12 @@
 'use strict';
 
+// Scroll to top on page load / refresh, overriding any hash in the URL
+if (history.scrollRestoration) history.scrollRestoration = 'manual';
+window.addEventListener('load', () => {
+  history.replaceState(null, '', window.location.pathname);
+  window.scrollTo(0, 0);
+});
+
 /* =============================================
    PARTICLE SYSTEM
    ============================================= */

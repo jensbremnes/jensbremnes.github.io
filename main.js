@@ -175,3 +175,26 @@
 
   sections.forEach((s) => observer.observe(s));
 })();
+
+
+/* =============================================
+   TIMELINE ANIMATIONS
+   ============================================= */
+(function initTimeline() {
+  const bubbles = document.querySelectorAll('.tl-bubble');
+  if (!bubbles.length) return;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  bubbles.forEach((bubble) => observer.observe(bubble));
+})();

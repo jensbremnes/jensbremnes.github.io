@@ -1092,3 +1092,17 @@ footer p {
     grid-template-columns: 1fr;
   }
 }
+
+.pub-citations {
+  display: inline-block;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 4px;
+  padding: 1px 6px;
+  margin-left: 0.5rem;
+  font-family: var(--font-mono);
+  vertical-align: middle;
+}
+.pub-citations:empty { display: none; }

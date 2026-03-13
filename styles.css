@@ -149,7 +149,7 @@ img {
 
 .hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   text-align: center;
   padding: 2rem;
   max-width: 760px;
@@ -971,6 +971,139 @@ footer p {
   .tl-bubble, .tl-dot, .tl::before { animation: none; }
   .tl-item.visible .tl-bubble { opacity: 1; }
   .tl-item.visible .tl-dot    { opacity: 1; transform: scale(1); box-shadow: 0 0 10px rgba(0,229,176,0.5); }
+}
+
+/* =============================================
+   OCEAN SURFACE EFFECTS
+   ============================================= */
+
+/* Wave canvas — inside #hero, behind hero-content */
+#wave-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Surface shimmer — glint band at water-surface level */
+#surface-shimmer-overlay {
+  position: absolute;
+  bottom: 25%;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse 80% 50% at 50% 50%, rgba(0,229,176,0.12) 0%, transparent 70%);
+  animation: shimmerDrift 6s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes shimmerDrift {
+  0%, 100% { opacity: 0.4; transform: scaleX(1);    }
+  50%       { opacity: 0.8; transform: scaleX(1.15); }
+}
+
+/* Submergence overlay — fixed full-viewport, scroll-driven */
+#submergence-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  pointer-events: none;
+  contain: strict;
+  will-change: transform, opacity;
+}
+
+/* Water fill — color tint + backdrop blur, driven by JS */
+.sub-water-fill {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
+/* Surface crossing line — cyan glow, JS controls top + opacity */
+.sub-surface-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  top: 100%;
+  opacity: 0;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(0,229,176,0.8) 20%,
+    rgba(150,230,255,0.95) 50%,
+    rgba(0,229,176,0.8) 80%,
+    transparent
+  );
+  box-shadow: 0 0 12px rgba(0,229,176,0.6), 0 0 30px rgba(0,229,176,0.3);
+  will-change: top, opacity;
+}
+
+/* One-shot flash when surface is first crossed */
+body.surface-crossed .sub-surface-line {
+  animation: surfaceCross 0.6s ease-out forwards;
+}
+
+@keyframes surfaceCross {
+  0%   { box-shadow: 0 0 12px rgba(0,229,176,0.6),  0 0  30px rgba(0,229,176,0.3); }
+  30%  { box-shadow: 0 0 40px rgba(0,229,176,1.0),  0 0  80px rgba(150,230,255,0.8), 0 0 120px rgba(0,229,176,0.5); }
+  100% { box-shadow: 0 0 12px rgba(0,229,176,0.6),  0 0  30px rgba(0,229,176,0.3); }
+}
+
+/* Caustic + god-ray canvas — screen blend, opacity JS-driven */
+#caustic-canvas {
+  position: absolute;
+  inset: 0;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0;
+  will-change: opacity;
+}
+
+/* =============================================
+   REDUCED MOTION — OCEAN OVERRIDES
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  #wave-canvas {
+    display: none;
+  }
+
+  /* Static waterline instead of animated waves */
+  #hero::after {
+    content: '';
+    position: absolute;
+    bottom: 25%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(0,229,176,0.35) 20%,
+      rgba(0,229,176,0.35) 80%,
+      transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  #surface-shimmer-overlay {
+    animation: none;
+    opacity: 0.4;
+  }
+
+  body.surface-crossed .sub-surface-line {
+    animation: none;
+  }
+
+  #caustic-canvas {
+    display: none;
+  }
 }
 
 @media (max-width: 480px) {

@@ -491,3 +491,37 @@ function initCausticCanvas() {
   }
   requestAnimationFrame(loop);
 })();
+
+/* =============================================
+   PUBLICATION SORT TOGGLE
+   ============================================= */
+(function initPubSort() {
+  const btn = document.getElementById('pub-sort-btn');
+  if (!btn) return;
+
+  // Both pub lists; each is sorted independently
+  const lists = document.querySelectorAll('.pub-list');
+
+  // Snapshot original DOM order for each list
+  const originals = Array.from(lists).map(list =>
+    Array.from(list.querySelectorAll('li.pub-entry'))
+  );
+
+  let sortedByCitations = false;
+
+  btn.addEventListener('click', () => {
+    sortedByCitations = !sortedByCitations;
+    btn.setAttribute('aria-pressed', sortedByCitations);
+    btn.textContent = sortedByCitations ? 'Sort by date' : 'Sort by citations';
+
+    lists.forEach((list, i) => {
+      const items = sortedByCitations
+        ? [...originals[i]].sort((a, b) =>
+            parseInt(b.dataset.citations, 10) - parseInt(a.dataset.citations, 10))
+        : [...originals[i]]; // restore original order
+
+      // Re-append in sorted order (moves DOM nodes, no cloning needed)
+      items.forEach(li => list.appendChild(li));
+    });
+  });
+})();

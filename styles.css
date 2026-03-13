@@ -562,6 +562,29 @@ img {
   margin-top: 2rem;
 }
 
+.pub-sort-controls {
+  margin-bottom: 0.5rem;
+}
+
+.pub-sort-btn {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.25rem 0.65rem;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  letter-spacing: 0.04em;
+}
+
+.pub-sort-btn:hover,
+.pub-sort-btn[aria-pressed="true"] {
+  border-color: var(--accent-bio);
+  color: var(--accent-bio);
+}
+
 .pub-list {
   list-style: decimal;
   padding-left: 1.5rem;

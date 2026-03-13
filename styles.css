@@ -1024,37 +1024,6 @@ footer p {
   background: transparent;
 }
 
-/* Surface crossing line — cyan glow, JS controls top + opacity */
-.sub-surface-line {
-  position: absolute;
-  left: 0;
-  right: 0;
-  height: 2px;
-  top: 100%;
-  opacity: 0;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(0,229,176,0.8) 20%,
-    rgba(150,230,255,0.95) 50%,
-    rgba(0,229,176,0.8) 80%,
-    transparent
-  );
-  box-shadow: 0 0 12px rgba(0,229,176,0.6), 0 0 30px rgba(0,229,176,0.3);
-  will-change: top, opacity;
-}
-
-/* One-shot flash when surface is first crossed */
-body.surface-crossed .sub-surface-line {
-  animation: surfaceCross 0.6s ease-out forwards;
-}
-
-@keyframes surfaceCross {
-  0%   { box-shadow: 0 0 12px rgba(0,229,176,0.6),  0 0  30px rgba(0,229,176,0.3); }
-  30%  { box-shadow: 0 0 40px rgba(0,229,176,1.0),  0 0  80px rgba(150,230,255,0.8), 0 0 120px rgba(0,229,176,0.5); }
-  100% { box-shadow: 0 0 12px rgba(0,229,176,0.6),  0 0  30px rgba(0,229,176,0.3); }
-}
-
 /* Caustic + god-ray canvas — screen blend, opacity JS-driven */
 #caustic-canvas {
   position: absolute;
@@ -1095,10 +1064,6 @@ body.surface-crossed .sub-surface-line {
   #surface-shimmer-overlay {
     animation: none;
     opacity: 0.4;
-  }
-
-  body.surface-crossed .sub-surface-line {
-    animation: none;
   }
 
   #caustic-canvas {

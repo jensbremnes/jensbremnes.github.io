@@ -302,7 +302,6 @@ function initSubmergenceScroll() {
   if (!hero || !overlay) return;
 
   const waterFill   = overlay.querySelector('.sub-water-fill');
-  const surfaceLine = overlay.querySelector('.sub-surface-line');
   const causticCvs  = document.getElementById('caustic-canvas');
 
   let scrollDirty = false;
@@ -320,32 +319,17 @@ function initSubmergenceScroll() {
         lastT = t;
         window.oceanState.scrollT = t;
 
-        // Surface line: sweeps from bottom (t=0.15) to top (t=0.40)
-        if (surfaceLine) {
-          if (t < 0.15) {
-            surfaceLine.style.top     = '100%';
-            surfaceLine.style.opacity = '0';
-          } else if (t <= 0.40) {
-            const ph = (t - 0.15) / 0.25;
-            surfaceLine.style.top     = (100 - ph * 110) + '%';
-            surfaceLine.style.opacity = String(Math.min(1, (t - 0.15) / 0.05));
-          } else {
-            surfaceLine.style.top     = '-2px';
-            surfaceLine.style.opacity = String(Math.max(0, 1 - (t - 0.40) / 0.10));
-          }
-        }
-
         // Water fill tint + backdrop blur
         if (waterFill) {
           let fillAlpha = 0;
           let blur = 0;
           if (t > 0.15) {
-            fillAlpha = Math.min(0.35, (t - 0.15) / 0.35 * 0.35);
-            if (t > 0.70) fillAlpha = 0.35 + (t - 0.70) / 0.30 * 0.25;
-            if (t > 0.40) blur = Math.min(1.5, (t - 0.40) / 0.15 * 1.5);
+            fillAlpha = Math.min(0.12, (t - 0.15) / 0.35 * 0.12);
+            if (t > 0.70) fillAlpha = Math.min(0.18, fillAlpha + (t - 0.70) / 0.30 * 0.06);
+            if (t > 0.40) blur = Math.min(0.8, (t - 0.40) / 0.15 * 0.8);
           }
           const fa  = fillAlpha.toFixed(3);
-          const fa2 = (fillAlpha * 1.5).toFixed(3);
+          const fa2 = fillAlpha.toFixed(3);
           waterFill.style.background          = `linear-gradient(to bottom, rgba(0,20,50,${fa}), rgba(5,10,18,${fa2}))`;
           const blurStr = blur > 0 ? `blur(${blur.toFixed(2)}px)` : '';
           waterFill.style.backdropFilter       = blurStr;
@@ -357,13 +341,6 @@ function initSubmergenceScroll() {
           causticCvs.style.opacity = t > 0.40
             ? Math.min(1, (t - 0.40) / 0.30).toFixed(3)
             : '0';
-        }
-
-        // surface-crossed class with hysteresis (add at t>0.27, remove at t<0.20)
-        if (t > 0.27 && !document.body.classList.contains('surface-crossed')) {
-          document.body.classList.add('surface-crossed');
-        } else if (t < 0.20) {
-          document.body.classList.remove('surface-crossed');
         }
 
         // Expose depth/slow factors for particle system

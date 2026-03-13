@@ -340,11 +340,19 @@ img {
   width: 240px;
   height: 240px;
   border-radius: 50%;
-  padding: 4px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.photo-ring::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
   background: conic-gradient(from 0deg, var(--accent-bio), var(--accent-blue), var(--accent-bio));
   box-shadow: 0 0 40px rgba(0, 229, 176, 0.25), 0 0 80px rgba(0, 229, 176, 0.1);
   animation: ringRotate 8s linear infinite;
-  margin: 0 auto;
+  z-index: -1;
 }
 
 @keyframes ringRotate {
@@ -358,7 +366,8 @@ img {
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  animation: ringRotate 8s linear infinite reverse;
+  position: relative;
+  z-index: 1;
 }
 
 .bio {

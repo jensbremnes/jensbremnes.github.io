@@ -6,67 +6,67 @@
     {
       "scholar_title": "A Bayesian approach to supervisory risk control of AUVs applied to under-ice operations",
       "citations": 24,
-      "matched_html_title": "Arctic under sea-ice light regimes via ROV hyperspectral imaging"
+      "matched_html_title": "Bayesian supervisory risk control of AUVs under ice"
     },
     {
       "scholar_title": "Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice",
       "citations": 20,
-      "matched_html_title": ""
+      "matched_html_title": "Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice"
     },
     {
       "scholar_title": "Intelligent risk-based under-ice altitude control for autonomous underwater vehicles",
       "citations": 20,
-      "matched_html_title": "Holistic risk modeling and path planning for marine robotics"
+      "matched_html_title": "Intelligent risk-based under-ice altitude control"
     },
     {
       "scholar_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms",
       "citations": 16,
-      "matched_html_title": "Switching controller for tracking AUVs with an ASV"
+      "matched_html_title": "Remote operation of marine robotic systems and next-gen control rooms"
     },
     {
       "scholar_title": "Infrastructure for remote experimentation in the Trondheim fjord",
       "citations": 7,
-      "matched_html_title": "Remote operation of marine robotic systems and next-gen control rooms"
+      "matched_html_title": "Remote experimentation infrastructure in Trondheim Fjord"
     },
     {
       "scholar_title": "Holistic risk modeling and path planning for marine robotics",
       "citations": 6,
-      "matched_html_title": ""
+      "matched_html_title": "Holistic risk modeling and path planning for marine robotics"
     },
     {
       "scholar_title": "A system-theoretic approach to hazard identification of operation with multiple autonomous marine systems (AMS)",
       "citations": 6,
-      "matched_html_title": "Hybrid observer for sensor fusion in underwater navigation"
+      "matched_html_title": "System-theoretic hazard identification for multiple AMS"
     },
     {
       "scholar_title": "Hybrid tracking controller for an ASV providing mission support for an AUV",
       "citations": 6,
-      "matched_html_title": "Bayesian supervisory risk control of AUVs under ice"
+      "matched_html_title": "Hybrid tracking controller ASV/AUV"
     },
     {
       "scholar_title": "Design of a Switching Controller for Tracking AUVs with an ASV",
       "citations": 5,
-      "matched_html_title": "Autonomous planning for circular SAS surveying"
+      "matched_html_title": "Switching controller for tracking AUVs with an ASV"
     },
     {
       "scholar_title": "Hybrid observer concept for sensor fusion of sporadic measurements for underwater navigation",
       "citations": 5,
-      "matched_html_title": "Adaptive AUV planning for optical inspection"
+      "matched_html_title": "Hybrid observer for sensor fusion in underwater navigation"
     },
     {
       "scholar_title": "Sensor-based hybrid translational observer for underwater navigation",
       "citations": 3,
-      "matched_html_title": "Remote experimentation infrastructure in Trondheim Fjord"
+      "matched_html_title": "Sensor-based hybrid translational observer"
     },
     {
       "scholar_title": "Evaluating the effect of risk metrics for supporting operational decision-making by autonomous surface vehicles",
       "citations": 2,
-      "matched_html_title": "System-theoretic hazard identification for multiple AMS"
+      "matched_html_title": "Evaluating the effect of risk metrics for supporting operational decision-making by autonomous surface vehicles"
     },
     {
       "scholar_title": "Seasonal cruise Q2 2021: Cruise report",
       "citations": 2,
-      "matched_html_title": "Hybrid tracking controller ASV/AUV"
+      "matched_html_title": ""
     },
     {
       "scholar_title": "Optimization-based planning and control of AUVs applied to adaptive sampling under ice",
@@ -76,12 +76,12 @@
     {
       "scholar_title": "Adaptive AUV Planning For Robust Optical Object Inspection Using In-Situ Sonar Data",
       "citations": 1,
-      "matched_html_title": "Intelligent risk-based under-ice altitude control"
+      "matched_html_title": "Adaptive AUV planning for optical inspection"
     },
     {
       "scholar_title": "Assessing Arctic under sea-ice light regimes and ice algal bio-optical properties using ROV-based hyperspectral imaging",
       "citations": 0,
-      "matched_html_title": "Sensor-based hybrid translational observer"
+      "matched_html_title": "Arctic under sea-ice light regimes via ROV hyperspectral imaging"
     }
   ]
 }

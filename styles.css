@@ -29,7 +29,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  scroll-padding-top: 64px; /* offset for fixed nav bar */
 }
+
 
 body {
   background-color: var(--bg-deep);

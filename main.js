@@ -402,3 +402,78 @@ function initCausticCanvas() {
   btnDate.addEventListener('click',      () => applySort(false));
   btnCitations.addEventListener('click', () => applySort(true));
 })();
+
+/* =============================================
+   SLIDE SECTION NAVIGATION
+   ============================================= */
+(function initSlideNav() {
+  const NAV_H = 64;
+  const sections = Array.from(document.querySelectorAll('#hero, .section'));
+  let sliding = false;
+
+  function currentIndex() {
+    const threshold = window.scrollY + NAV_H + 2;
+    let idx = 0;
+    for (let i = 0; i < sections.length; i++) {
+      if (sections[i].offsetTop <= threshold) idx = i;
+    }
+    return idx;
+  }
+
+  function slideTo(idx) {
+    if (idx < 0 || idx >= sections.length || sliding) return;
+    sliding = true;
+    const top = Math.max(0, sections[idx].offsetTop - NAV_H);
+    window.scrollTo({ top, behavior: 'smooth' });
+    // Release lock when scroll settles (scrollend or timeout fallback)
+    const unlock = () => { sliding = false; };
+    window.addEventListener('scrollend', unlock, { once: true });
+    setTimeout(unlock, 1000);
+  }
+
+  // Wheel / trackpad
+  window.addEventListener('wheel', (e) => {
+    if (sliding) { e.preventDefault(); return; }
+
+    const idx = currentIndex();
+    const sec = sections[idx];
+    const secBottom = sec.offsetTop + sec.offsetHeight;
+    const viewBottom = window.scrollY + window.innerHeight;
+    const secTop = sec.offsetTop - NAV_H;
+
+    const goingDown = e.deltaY > 0;
+    const atBottom  = goingDown  && viewBottom >= secBottom - 10;
+    const atTop     = !goingDown && window.scrollY <= secTop + 10;
+
+    if (atBottom || atTop) {
+      e.preventDefault();
+      slideTo(idx + (goingDown ? 1 : -1));
+    }
+  }, { passive: false });
+
+  // Touch swipe
+  let touchStartY = 0;
+  window.addEventListener('touchstart', (e) => {
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  window.addEventListener('touchend', (e) => {
+    if (sliding) return;
+    const delta = touchStartY - e.changedTouches[0].clientY;
+    if (Math.abs(delta) < 40) return; // ignore tiny swipes
+
+    const idx = currentIndex();
+    const sec = sections[idx];
+    const secBottom = sec.offsetTop + sec.offsetHeight;
+    const viewBottom = window.scrollY + window.innerHeight;
+    const secTop = sec.offsetTop - NAV_H;
+
+    const goingDown = delta > 0;
+    const atBottom  = goingDown  && viewBottom >= secBottom - 10;
+    const atTop     = !goingDown && window.scrollY <= secTop + 10;
+
+    if (atBottom || atTop) {
+      slideTo(idx + (goingDown ? 1 : -1));
+    }
+  }, { passive: true });
+})();

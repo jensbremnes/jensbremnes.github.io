@@ -118,9 +118,9 @@ function initWaveCanvas() {
   const foamStep  = isMobile ? 12 : 8;
 
   const layers = [
-    { yFrac: 0.62, amp: 18 * ampMult, freq: 0.008, speed: 0.0004, color: 'rgba(10,22,40,0.85)',  type: 'fill' },
-    { yFrac: 0.68, amp: 12 * ampMult, freq: 0.013, speed: 0.0007, color: 'rgba(0,60,90,0.70)',   type: 'fill' },
-    { yFrac: 0.73, amp:  8 * ampMult, freq: 0.019, speed: 0.0011, color: 'rgba(0,229,176,0.25)', type: 'foam' },
+    { yFrac: 0.72, amp: 18 * ampMult, freq: 0.008, speed: 0.0004, color: 'rgba(10,22,40,0.85)',  type: 'fill' },
+    { yFrac: 0.78, amp: 12 * ampMult, freq: 0.013, speed: 0.0007, color: 'rgba(0,60,90,0.70)',   type: 'fill' },
+    { yFrac: 0.83, amp:  8 * ampMult, freq: 0.019, speed: 0.0011, color: 'rgba(0,229,176,0.25)', type: 'foam' },
   ];
 
   function resize() {

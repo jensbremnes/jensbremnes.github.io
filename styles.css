@@ -151,6 +151,15 @@ img {
   max-width: 760px;
 }
 
+.hero-photo {
+  margin-bottom: 1.5rem;
+}
+
+.hero-photo .photo-ring {
+  width: 160px;
+  height: 160px;
+}
+
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: 0.75rem;

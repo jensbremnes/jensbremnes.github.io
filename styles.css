@@ -1178,3 +1178,122 @@ section {
   vertical-align: middle;
 }
 .pub-citations:empty { display: none; }
+
+/* =============================================
+   MEDIA SECTION
+   ============================================= */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-bio);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.media-feature {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.media-card {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+  background: var(--bg-panel);
+}
+
+.media-card:hover {
+  border-color: var(--accent-bio);
+  box-shadow: 0 0 30px rgba(0, 229, 176, 0.12);
+  transform: translateY(-2px);
+}
+
+.media-card-image {
+  position: relative;
+  flex: 0 0 42%;
+  overflow: hidden;
+}
+
+.media-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.media-card:hover .media-card-image img {
+  transform: scale(1.04);
+}
+
+.media-source-badge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--accent-bio);
+  color: #050A12;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+}
+
+.media-card-body {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.media-date {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  margin: 0;
+}
+
+.media-title {
+  font-family: var(--font-head);
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.media-excerpt {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+.media-read-more {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent-bio);
+  letter-spacing: 0.04em;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 680px) {
+  .media-card {
+    flex-direction: column;
+  }
+  .media-card-image {
+    flex: 0 0 220px;
+    height: 220px;
+  }
+}

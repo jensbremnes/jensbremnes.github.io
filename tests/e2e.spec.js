@@ -26,7 +26,7 @@ test('contact section', async ({ page }) => {
 });
 
 test('profile photo', async ({ page }) => {
-  const img = page.locator('img[src*="jens.JPG"]');
+  const img = page.locator('img[src*="jens-hero.jpg"]');
   await expect(img).toHaveCount(1);
   await expect(img).toBeVisible();
 });

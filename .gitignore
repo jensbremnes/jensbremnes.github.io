@@ -1,3 +1,28 @@
+# Dependencies
 node_modules/
+
+# Test output
 test-results/
+.playwright-mcp/
+
+# Private/local data
 about-me/
+obsolete/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Python artifacts
+__pycache__/
+*.pyc
+.venv/
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+
+# Environment
+.env
+.env.local

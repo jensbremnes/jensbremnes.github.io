@@ -504,18 +504,20 @@ img {
   gap: 1.25rem;
 }
 
-.project-card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
-
 .project-card {
+  position: relative;
   background: var(--bg-panel);
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 1.5rem;
   transition: border-color 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+}
+
+.project-card .project-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
 }
 
 .project-card:hover {

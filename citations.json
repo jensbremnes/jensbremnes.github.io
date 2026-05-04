@@ -1,7 +1,7 @@
 {
-  "fetched_at": "2026-03-23T06:57:56",
-  "total_citations": 125,
-  "h_index": 6,
+  "fetched_at": "2026-05-04T08:15:44",
+  "total_citations": 131,
+  "h_index": 7,
   "papers": [
     {
       "scholar_title": "A Bayesian approach to supervisory risk control of AUVs applied to under-ice operations",
@@ -10,7 +10,7 @@
     },
     {
       "scholar_title": "Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice",
-      "citations": 20,
+      "citations": 21,
       "matched_html_title": "Evaluating the effect of risk metrics for supporting operational decision-making by autonomous surface vehicles"
     },
     {
@@ -24,28 +24,28 @@
       "matched_html_title": "Design of a Switching Controller for Tracking AUVs with an ASV"
     },
     {
+      "scholar_title": "Design of a Switching Controller for Tracking AUVs with an ASV",
+      "citations": 9,
+      "matched_html_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms"
+    },
+    {
       "scholar_title": "Infrastructure for remote experimentation in the Trondheim fjord",
       "citations": 7,
-      "matched_html_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms"
+      "matched_html_title": "Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice"
+    },
+    {
+      "scholar_title": "Hybrid tracking controller for an ASV providing mission support for an AUV",
+      "citations": 7,
+      "matched_html_title": "Hybrid observer concept for sensor fusion of sporadic measurements for underwater navigation"
     },
     {
       "scholar_title": "Holistic risk modeling and path planning for marine robotics",
       "citations": 6,
-      "matched_html_title": "Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice"
+      "matched_html_title": "A Bayesian approach to supervisory risk control of AUVs applied to under-ice operations"
     },
     {
       "scholar_title": "A system-theoretic approach to hazard identification of operation with multiple autonomous marine systems (AMS)",
       "citations": 6,
-      "matched_html_title": "Hybrid observer concept for sensor fusion of sporadic measurements for underwater navigation"
-    },
-    {
-      "scholar_title": "Hybrid tracking controller for an ASV providing mission support for an AUV",
-      "citations": 6,
-      "matched_html_title": "A Bayesian approach to supervisory risk control of AUVs applied to under-ice operations"
-    },
-    {
-      "scholar_title": "Design of a Switching Controller for Tracking AUVs with an ASV",
-      "citations": 5,
       "matched_html_title": "Planning in circles: Autonomous planning for circular synthetic aperture sonar surveying with AUVs"
     },
     {

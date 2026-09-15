@@ -810,13 +810,6 @@ strong {
 
 /* ---------- Contact ---------- */
 
-.contact-intro {
-  font-size: 0.95rem;
-  color: var(--text-soft);
-  margin: -0.4rem 0 1.4rem;
-  max-width: var(--col-text);
-}
-
 .contact-list {
   display: grid;
   gap: 0;

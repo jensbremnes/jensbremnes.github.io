@@ -19,7 +19,7 @@ test('nav links', async ({ page }) => {
 test('hero shows UiT role', async ({ page }) => {
   await expect(page.locator('.hero-eyebrow')).toContainText('UiT The Arctic University of Norway');
   await expect(page.locator('.hero-name')).toHaveText('Jens Einar Bremnes');
-  await expect(page.locator('.hero-tagline')).toContainText('remotely piloted systems');
+  await expect(page.locator('.hero-tagline')).toContainText('autonomous systems');
 });
 
 test('github link', async ({ page }) => {

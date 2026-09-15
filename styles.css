@@ -116,7 +116,6 @@ strong {
 @media (prefers-reduced-motion: no-preference) {
   a,
   .theme-toggle,
-  .btn-cv,
   .pub-sort-btn {
     transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   }
@@ -300,24 +299,6 @@ strong {
   font-size: 0.86rem;
   font-weight: 500;
   margin-top: 1.4rem;
-}
-
-.btn-cv {
-  display: inline-block;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--bg);
-  background: var(--accent);
-  border: 1px solid transparent;
-  border-radius: 999px;
-  padding: 0.38rem 1.1rem;
-}
-
-.btn-cv:hover {
-  background: transparent;
-  border-color: var(--accent);
-  color: var(--accent);
-  text-decoration: none;
 }
 
 .hero-photo-wrap {

@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('nav links', async ({ page }) => {
-  const hrefs = ['#about', '#research', '#software', '#publications', '#projects', '#background', '#contact'];
+  const hrefs = ['#about', '#research', '#software', '#publications', '#background', '#contact'];
   for (const href of hrefs) {
     const link = page.locator(`#nav a[href="${href}"]`);
     await expect(link).toHaveCount(1);
@@ -38,8 +38,11 @@ test('software section with geobn card', async ({ page }) => {
   const card = section.locator('.software-card');
   await expect(card).toHaveCount(1);
   await expect(card.locator('a[href="https://github.com/jensbremnes/geobn"]')).toHaveCount(2);
-  // geobn lives in #software only, not duplicated in Projects.
-  await expect(page.locator('#projects a[href*="geobn"]')).toHaveCount(0);
+});
+
+test('projects section removed', async ({ page }) => {
+  await expect(page.locator('#projects')).toHaveCount(0);
+  await expect(page.locator('#nav a[href="#projects"]')).toHaveCount(0);
 });
 
 test('hero scene canvas animates', async ({ page }) => {
@@ -175,7 +178,7 @@ test('publication sort by citations reorders entries', async ({ page }) => {
 test('reduced motion keeps all sections visible', async ({ page }) => {
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.goto(FILE_URL);
-  for (const id of ['#about', '#research', '#software', '#publications', '#projects', '#background', '#contact']) {
+  for (const id of ['#about', '#research', '#software', '#publications', '#background', '#contact']) {
     await expect(page.locator(id)).toBeVisible();
   }
   const revealCount = await page.locator('.reveal').count();

@@ -8,15 +8,22 @@ test.beforeEach(async ({ page }) => {
 });
 
 test('nav links', async ({ page }) => {
-  const hrefs = ['#research', '#education', '#publications', '#contact'];
+  const hrefs = ['#about', '#research', '#software', '#publications', '#projects', '#background', '#contact'];
   for (const href of hrefs) {
     const link = page.locator(`#nav a[href="${href}"]`);
     await expect(link).toHaveCount(1);
   }
+  await expect(page.locator('#nav a[href="#talks"]')).toHaveCount(0);
+});
+
+test('hero shows UiT role', async ({ page }) => {
+  await expect(page.locator('.hero-eyebrow')).toContainText('UiT The Arctic University of Norway');
+  await expect(page.locator('.hero-name')).toHaveText('Jens Einar Bremnes');
+  await expect(page.locator('.hero-tagline')).toContainText('remotely piloted systems');
 });
 
 test('github link', async ({ page }) => {
-  const link = page.locator('.masthead-links a[href="https://github.com/jensbremnes"]');
+  const link = page.locator('.hero-links a[href="https://github.com/jensbremnes"]');
   await expect(link).toHaveCount(1);
 });
 
@@ -25,10 +32,59 @@ test('contact section', async ({ page }) => {
   await expect(section).toBeVisible();
 });
 
+test('software section with geobn card', async ({ page }) => {
+  const section = page.locator('#software');
+  await expect(section).toBeVisible();
+  const card = section.locator('.software-card');
+  await expect(card).toHaveCount(1);
+  await expect(card.locator('a[href="https://github.com/jensbremnes/geobn"]')).toHaveCount(2);
+  // geobn lives in #software only, not duplicated in Projects.
+  await expect(page.locator('#projects a[href*="geobn"]')).toHaveCount(0);
+});
+
+test('hero scene canvas animates', async ({ page }) => {
+  const canvas = page.locator('#hero-scene-canvas');
+  await expect(canvas).toBeVisible();
+  const sizes = await page.evaluate(() => {
+    const c = document.getElementById('hero-scene-canvas');
+    return { w: c.width, h: c.height };
+  });
+  expect(sizes.w).toBeGreaterThan(0);
+  expect(sizes.h).toBeGreaterThan(0);
+  // The canvas actually gets painted (some non-transparent pixels).
+  const painted = await page.evaluate(() => {
+    const c = document.getElementById('hero-scene-canvas');
+    const data = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+    for (let i = 3; i < data.length; i += 4) {
+      if (data[i] > 0) return true;
+    }
+    return false;
+  });
+  expect(painted).toBe(true);
+});
+
+test('hero scene draws static frame under reduced motion', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto(FILE_URL);
+  const painted = await page.evaluate(() => {
+    const c = document.getElementById('hero-scene-canvas');
+    const data = c.getContext('2d').getImageData(0, 0, c.width, c.height).data;
+    for (let i = 3; i < data.length; i += 4) {
+      if (data[i] > 0) return true;
+    }
+    return false;
+  });
+  expect(painted).toBe(true);
+});
+
 test('profile photo', async ({ page }) => {
-  const img = page.locator('img[src*="jens_einar_bremnes_photo.jpg"]');
+  const img = page.locator('img[src*="jens-hero.jpg"]');
   await expect(img).toHaveCount(1);
   await expect(img).toBeVisible();
+});
+
+test('talks section removed', async ({ page }) => {
+  await expect(page.locator('#talks')).toHaveCount(0);
 });
 
 test('viewport 375px - no horizontal overflow', async ({ page }) => {
@@ -50,9 +106,19 @@ test('viewport 1280px - no horizontal overflow', async ({ page }) => {
 });
 
 test('publications count', async ({ page }) => {
-  const pubs = page.locator('.pub-entry');
+  const pubs = page.locator('.pub-list .pub-entry');
   const count = await pubs.count();
-  expect(count).toBeGreaterThanOrEqual(16);
+  expect(count).toBeGreaterThanOrEqual(20);
+});
+
+test('featured publications', async ({ page }) => {
+  const featured = page.locator('.pub-featured');
+  await expect(featured).toHaveCount(4);
+  // Featured cards carry the pub-entry/pub-title contract so the
+  // citation-update workflow keeps their counts fresh too.
+  for (let i = 0; i < 4; i++) {
+    await expect(featured.nth(i).locator('.pub-title')).not.toBeEmpty();
+  }
 });
 
 test('google scholar link', async ({ page }) => {
@@ -64,33 +130,36 @@ test('google scholar link', async ({ page }) => {
 test('citation stats hooks for update workflow', async ({ page }) => {
   await expect(page.locator('#stat-citations')).toHaveText(/^\d+$/);
   await expect(page.locator('#stat-hindex')).toHaveText(/^\d+$/);
+  await expect(page.locator('#stat-contact-summary')).toContainText(/\d+ citations · h-index \d+/);
 });
 
-test('theme toggle switches and persists', async ({ page }) => {
+test('dark by default, theme toggle switches and persists', async ({ page }) => {
   const html = page.locator('html');
-  await expect(html).not.toHaveAttribute('data-theme', 'dark');
+  await expect(html).toHaveAttribute('data-theme', 'dark');
 
   await page.locator('#theme-toggle').click();
-  await expect(html).toHaveAttribute('data-theme', 'dark');
+  await expect(html).not.toHaveAttribute('data-theme', 'dark');
 
   await page.reload();
-  await expect(html).toHaveAttribute('data-theme', 'dark');
+  await expect(html).not.toHaveAttribute('data-theme', 'dark');
 
   await page.locator('#theme-toggle').click();
-  await expect(html).not.toHaveAttribute('data-theme', 'dark');
+  await expect(html).toHaveAttribute('data-theme', 'dark');
 });
 
-test('news section visible on screen', async ({ page }) => {
-  await expect(page.locator('#news')).toBeVisible();
-});
-
-test('print-only content hidden on screen', async ({ page }) => {
-  await expect(page.locator('#skills')).toBeHidden();
-  await expect(page.locator('#contact dt', { hasText: 'Phone' })).toHaveCount(0);
+// News section is commented out in index.html for now; restore this test
+// together with the section and its nav link if it comes back.
+// test('news section visible', async ({ page }) => {
+//   await expect(page.locator('#news')).toBeVisible();
+//   await expect(page.locator('#news .news-item').first()).toContainText('UiT The Arctic University of Norway');
+// });
+test('news section hidden', async ({ page }) => {
+  await expect(page.locator('#news')).toHaveCount(0);
+  await expect(page.locator('#nav a[href="#news"]')).toHaveCount(0);
 });
 
 test('publication titles link out', async ({ page }) => {
-  const links = page.locator('.pub-title a[href^="https://doi.org/"]');
+  const links = page.locator('.pub-list .pub-title a[href^="https://doi.org/"]');
   expect(await links.count()).toBeGreaterThanOrEqual(15);
 });
 
@@ -101,4 +170,14 @@ test('publication sort by citations reorders entries', async ({ page }) => {
     'A Bayesian approach to supervisory risk control'
   );
   await expect(page.locator('#pub-sort-citations')).toHaveAttribute('aria-pressed', 'true');
+});
+
+test('reduced motion keeps all sections visible', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await page.goto(FILE_URL);
+  for (const id of ['#about', '#research', '#software', '#publications', '#projects', '#background', '#contact']) {
+    await expect(page.locator(id)).toBeVisible();
+  }
+  const revealCount = await page.locator('.reveal').count();
+  expect(revealCount).toBe(0);
 });

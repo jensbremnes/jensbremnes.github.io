@@ -34,6 +34,7 @@ HTML_FILE = "index.html"
 JSON_FILE = "citations.json"
 FUZZY_THRESHOLD = 0.6
 ATTEMPTS = 3
+STALE_AFTER_DAYS = 30
 
 
 def fuzzy_match(query: str, candidates: list[dict]) -> tuple[dict | None, float]:
@@ -50,7 +51,7 @@ def fuzzy_match(query: str, candidates: list[dict]) -> tuple[dict | None, float]
     return (best, best_score) if best_score >= FUZZY_THRESHOLD else (None, best_score)
 
 
-def download_profile() -> str:
+def download_profile() -> str | None:
     request = urllib.request.Request(PROFILE_URL, headers={"User-Agent": USER_AGENT, "Accept-Language": "en"})
     last_error = None
     for attempt in range(1, ATTEMPTS + 1):
@@ -65,12 +66,35 @@ def download_profile() -> str:
         print(f"Attempt {attempt}/{ATTEMPTS} failed: {last_error}")
         if attempt < ATTEMPTS:
             time.sleep(20 * attempt)
-    sys.exit(f"Could not fetch Google Scholar profile: {last_error}")
+    print(f"Could not fetch Google Scholar profile: {last_error}")
+    return None
 
 
-def fetch_scholar_data() -> dict:
+def days_since_last_fetch() -> float | None:
+    try:
+        with open(JSON_FILE, encoding="utf-8") as f:
+            fetched_at = json.load(f)["fetched_at"]
+    except (OSError, KeyError, ValueError):
+        return None
+    last = datetime.strptime(fetched_at, "%Y-%m-%dT%H:%M:%S").replace(tzinfo=timezone.utc)
+    return (datetime.now(timezone.utc) - last).total_seconds() / 86400
+
+
+def handle_blocked() -> None:
+    """Scholar often blocks CI runners. Only fail when the data has gone stale."""
+    age = days_since_last_fetch()
+    if age is None or age > STALE_AFTER_DAYS:
+        age_text = "unknown" if age is None else f"{age:.1f} days ago"
+        sys.exit(f"::error::Google Scholar fetch failed and citations are stale (last update: {age_text}).")
+    print(f"::warning::Google Scholar fetch failed; keeping citations from {age:.1f} days ago.")
+
+
+def fetch_scholar_data() -> dict | None:
     print(f"Fetching author profile {SCHOLAR_ID} from Google Scholar…")
-    soup = BeautifulSoup(download_profile(), "html.parser")
+    page = download_profile()
+    if page is None:
+        return None
+    soup = BeautifulSoup(page, "html.parser")
 
     # Stats table cells: citations (all, since), h-index (all, since), i10 (all, since)
     stats = [int(td.get_text(strip=True)) for td in soup.select("td.gsc_rsb_std")]
@@ -197,6 +221,9 @@ def patch_html(data: dict) -> dict[str, list[str]]:
 
 def main() -> None:
     data = fetch_scholar_data()
+    if data is None:
+        handle_blocked()
+        return
     print(f"Total citations: {data['total_citations']}, h-index: {data['h_index']}, "
           f"papers from Scholar: {len(data['papers'])}")
     if not data["papers"]:

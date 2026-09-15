@@ -2,7 +2,7 @@ name: Update citations
 
 on:
   schedule:
-    - cron: "0 6 * * 1"  # Every Monday at 06:00 UTC
+    - cron: "17 5 * * *"  # Daily; Scholar often blocks GitHub runners, so retry every day
   workflow_dispatch:       # Allow manual runs from the Actions tab
 
 permissions:

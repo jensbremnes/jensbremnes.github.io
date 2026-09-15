@@ -114,14 +114,8 @@ test('publications count', async ({ page }) => {
   expect(count).toBeGreaterThanOrEqual(20);
 });
 
-test('featured publications', async ({ page }) => {
-  const featured = page.locator('.pub-featured');
-  await expect(featured).toHaveCount(4);
-  // Featured cards carry the pub-entry/pub-title contract so the
-  // citation-update workflow keeps their counts fresh too.
-  for (let i = 0; i < 4; i++) {
-    await expect(featured.nth(i).locator('.pub-title')).not.toBeEmpty();
-  }
+test('selected publications removed', async ({ page }) => {
+  await expect(page.locator('.pub-featured')).toHaveCount(0);
 });
 
 test('google scholar link', async ({ page }) => {

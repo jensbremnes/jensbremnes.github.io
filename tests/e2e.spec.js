@@ -46,12 +46,12 @@ test('geobn demo loads the map and responds to inputs', async ({ page }) => {
   await expect(page.locator('#geobn-map.leaflet-container')).toBeVisible({ timeout: 15000 });
   await expect(page.locator('#geobn-map .leaflet-image-layer')).toHaveCount(1);
 
-  const stats = page.locator('#geobn-stats');
-  await expect(stats).toContainText('network queries');
-  const before = await stats.textContent();
+  const snowOut = page.locator('#geobn-snow-out');
+  await expect(snowOut).toContainText('cm');
+  const before = await snowOut.textContent();
   await page.locator('#geobn-snow').fill('80');
-  await page.locator('#geobn-wind').fill('25');
-  await expect(stats).not.toHaveText(before);
+  await expect(snowOut).not.toHaveText(before);
+  await expect(snowOut).toContainText('heavy');
 
   const entropy = page.locator('#geobn-demo [data-layer="entropy"]');
   await entropy.click();

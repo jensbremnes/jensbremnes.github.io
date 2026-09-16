@@ -319,7 +319,6 @@
     const legendMin = document.getElementById('geobn-legend-min');
     const legendMax = document.getElementById('geobn-legend-max');
     const readout = document.getElementById('geobn-readout');
-    const stats = document.getElementById('geobn-stats');
     const tableBody = document.getElementById('geobn-table-body');
     const inputs = {
       snow: document.getElementById('geobn-snow'),
@@ -456,8 +455,7 @@
     }
 
     function updateText() {
-      // The shaded share is a step function, so it can sit still while every
-      // cell keeps climbing; the mean moves with the sliders.
+      // Not shown on the page; the map's aria-label describes it for screen readers.
       let shadedCells = 0;
       let weighted = 0;
       for (let c = 0; c < N_CODES; c++) {
@@ -467,10 +465,6 @@
       }
       const pct = Math.round((shadedCells / cells) * 100);
       const mean = weighted / cells;
-      stats.textContent =
-        `${fmtInt(cells)} land cells, but only ${queries} evidence combinations, ` +
-        `so ${queries} network queries. Mean P(high risk) ${mean.toFixed(2)}; ` +
-        `${pct}% of the land is above ${RISK_CUTOFF} and shaded.`;
       mapEl.setAttribute(
         'aria-label',
         `${LAYERS[state.layer].label} map of the Lyngen Alps. Mean P(high risk) ${mean.toFixed(2)}, ` +

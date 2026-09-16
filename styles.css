@@ -752,13 +752,6 @@ strong {
   accent-color: var(--accent);
 }
 
-.geobn-stats {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  line-height: 1.6;
-  color: var(--text-faint);
-}
-
 .geobn-table summary {
   cursor: pointer;
   font-family: var(--font-mono);

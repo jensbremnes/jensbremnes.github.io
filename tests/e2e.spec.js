@@ -40,6 +40,25 @@ test('software section with geobn card', async ({ page }) => {
   await expect(card.locator('a[href="https://github.com/jensbremnes/geobn"]')).toHaveCount(2);
 });
 
+test('geobn demo loads the map and responds to inputs', async ({ page }) => {
+  // The demo loads Leaflet and the terrain data only when scrolled near.
+  await page.locator('#geobn-demo').scrollIntoViewIfNeeded();
+  await expect(page.locator('#geobn-map.leaflet-container')).toBeVisible({ timeout: 15000 });
+  await expect(page.locator('#geobn-map .leaflet-image-layer')).toHaveCount(1);
+
+  const stats = page.locator('#geobn-stats');
+  await expect(stats).toContainText('network queries');
+  const before = await stats.textContent();
+  await page.locator('#geobn-snow').fill('80');
+  await page.locator('#geobn-wind').fill('25');
+  await expect(stats).not.toHaveText(before);
+
+  const entropy = page.locator('#geobn-demo [data-layer="entropy"]');
+  await entropy.click();
+  await expect(entropy).toHaveAttribute('aria-pressed', 'true');
+  await expect(page.locator('#geobn-demo [data-layer="risk"]')).toHaveAttribute('aria-pressed', 'false');
+});
+
 test('projects section removed', async ({ page }) => {
   await expect(page.locator('#projects')).toHaveCount(0);
   await expect(page.locator('#nav a[href="#projects"]')).toHaveCount(0);

@@ -624,6 +624,185 @@ strong {
   font-size: 0.75rem;
 }
 
+/* ---------- geobn demo ---------- */
+
+.geobn-demo {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+/* No hover lift: the card shouldn't move while a slider is dragged. */
+.geobn-demo:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--rule);
+}
+
+.geobn-intro {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  max-width: var(--col-text);
+}
+
+.geobn-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: start;
+  margin: 0.8rem 0 0.4rem;
+}
+
+.geobn-body[hidden] {
+  display: none;
+}
+
+.geobn-map-view {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg);
+  /* Keep Leaflet's high z-index panes below the sticky nav. */
+  isolation: isolate;
+  font-family: var(--font-sans);
+}
+
+.geobn-map-view.leaflet-container {
+  cursor: crosshair;
+}
+
+/* Darken the grey topo tiles in dark mode; the risk overlay is untouched. */
+:root[data-theme='dark'] .geobn-map-view .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.85) contrast(0.9);
+}
+
+.geobn-map-view .leaflet-control-attribution {
+  font-size: 0.65rem;
+  color: var(--text-faint);
+  background: var(--nav-bg);
+}
+
+.geobn-map-view .leaflet-bar a {
+  color: var(--text);
+  background: var(--bg-raised);
+  border-color: var(--rule);
+}
+
+.geobn-legend {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-faint);
+}
+
+.geobn-legend-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+}
+
+.geobn-readout {
+  margin-top: 0.4rem;
+  min-height: 3.2em;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--text-soft);
+}
+
+.geobn-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.geobn-layers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.geobn-slider {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.geobn-slider-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.geobn-slider output {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-soft);
+}
+
+.geobn-slider input[type='range'] {
+  width: 100%;
+  accent-color: var(--accent);
+}
+
+.geobn-stats {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: var(--text-faint);
+}
+
+.geobn-table summary {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-soft);
+}
+
+.geobn-table-wrap {
+  max-height: 16rem;
+  overflow: auto;
+  margin-top: 0.5rem;
+}
+
+.geobn-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.geobn-table th,
+.geobn-table td {
+  padding: 0.2rem 0.6rem 0.2rem 0;
+  border-bottom: 1px solid var(--rule);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.geobn-table th {
+  font-weight: 500;
+  color: var(--text-faint);
+}
+
+.geobn-note {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+}
+
+@media (max-width: 760px) {
+  .geobn-body {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* ---------- News & media items ---------- */
 
 .news-item {

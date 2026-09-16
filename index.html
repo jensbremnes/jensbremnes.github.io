@@ -20,7 +20,7 @@
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;1,400&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
 <script>if(localStorage.getItem('cv-theme')==='light')document.documentElement.removeAttribute('data-theme');</script>
-<link href="styles.css?v=4" rel="stylesheet"/>
+<link href="styles.css?v=5" rel="stylesheet"/>
 </head>
 <body>
 <!-- TOP NAV -->
@@ -107,6 +107,54 @@
 <p class="project-org">Bayesian networks over geospatial data</p>
 <p>Python library for Bayesian network inference over geospatial data. Combines heterogeneous data sources (GeoTIFF, WCS, in-memory arrays) to generate insight over geographical areas.</p>
 <p class="software-links"><a href="https://github.com/jensbremnes/geobn" rel="noopener" target="_blank">View on GitHub →</a></p>
+</article>
+<article aria-labelledby="geobn-demo-title" class="card geobn-demo" data-reveal="" id="geobn-demo">
+<p class="project-period">Interactive demo · runs in your browser</p>
+<h3 class="project-name" id="geobn-demo-title">Avalanche risk in the Lyngen Alps</h3>
+<p class="geobn-intro">geobn's own example. Slope, aspect and forest cover come from Kartverket's terrain model. Set the weather, and a Bayesian network estimates the avalanche risk for every cell on the map. Only terrain above a risk threshold is shaded, so the red spreads as the weather worsens, and darker means more avalanche-prone. Weather values between two states are blended, so the sliders keep biting all the way.</p>
+<noscript><p class="geobn-note">This demo needs JavaScript.</p></noscript>
+<p class="geobn-note geobn-fallback" hidden="">The map could not be loaded.</p>
+<div class="geobn-body" hidden="">
+<div class="geobn-map">
+<div aria-label="Map of avalanche risk in the Lyngen Alps" class="geobn-map-view" id="geobn-map" role="region"></div>
+<div class="geobn-legend">
+<span id="geobn-legend-min">0</span>
+<span aria-hidden="true" class="geobn-legend-bar" id="geobn-legend-bar"></span>
+<span id="geobn-legend-max">1</span>
+</div>
+<p aria-live="polite" class="geobn-readout" id="geobn-readout">Hover or tap the map to inspect a location.</p>
+</div>
+<div class="geobn-controls">
+<div aria-label="Map layer" class="geobn-layers" role="group">
+<button aria-pressed="true" class="pub-sort-btn" data-layer="risk" type="button">P(high risk)</button>
+<button aria-pressed="false" class="pub-sort-btn" data-layer="entropy" type="button">Entropy</button>
+<button aria-pressed="false" class="pub-sort-btn" data-layer="slope" type="button">Slope</button>
+</div>
+<label class="geobn-slider" for="geobn-snow">
+<span class="geobn-slider-head"><span>New snow</span><output for="geobn-snow" id="geobn-snow-out"></output></span>
+<input id="geobn-snow" max="80" min="0" step="1" type="range" value="30"/>
+</label>
+<label class="geobn-slider" for="geobn-temp">
+<span class="geobn-slider-head"><span>Air temperature</span><output for="geobn-temp" id="geobn-temp-out"></output></span>
+<input id="geobn-temp" max="5" min="-20" step="1" type="range" value="-5"/>
+</label>
+<label class="geobn-slider" for="geobn-wind">
+<span class="geobn-slider-head"><span>Wind</span><output for="geobn-wind" id="geobn-wind-out"></output></span>
+<input id="geobn-wind" max="25" min="0" step="1" type="range" value="8"/>
+</label>
+<p class="geobn-stats" id="geobn-stats"></p>
+<details class="geobn-table">
+<summary>Inference table</summary>
+<div class="geobn-table-wrap">
+<table>
+<thead><tr><th scope="col">Slope</th><th scope="col">Aspect</th><th scope="col">Forest</th><th scope="col">Cells</th><th scope="col">P(high)</th></tr></thead>
+<tbody id="geobn-table-body"></tbody>
+</table>
+</div>
+</details>
+</div>
+</div>
+<p class="geobn-note">Example model for illustration, not an avalanche forecast. For real warnings, see <a href="https://www.varsom.no/" rel="noopener" target="_blank">varsom.no</a>. Map and terrain data © Kartverket. <a href="https://jensbremnes.github.io/geobn" rel="noopener" target="_blank">geobn docs →</a></p>
 </article>
 </div>
 </section>
@@ -397,5 +445,6 @@
 </footer>
 </main>
 <script src="main.js?v=3"></script>
+<script src="geobn-demo.js?v=2"></script>
 </body>
 </html>

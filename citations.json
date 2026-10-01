@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-09-25T10:10:20",
-  "total_citations": 157,
+  "fetched_at": "2026-10-01T11:35:54",
+  "total_citations": 160,
   "h_index": 8,
   "papers": [
     {
@@ -10,8 +10,13 @@
     },
     {
       "scholar_title": "Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice",
-      "citations": 24,
+      "citations": 25,
       "matched_html_title": "Online risk modeling of autonomous marine systems: Case study of autonomous operations under sea ice"
+    },
+    {
+      "scholar_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms",
+      "citations": 22,
+      "matched_html_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms"
     },
     {
       "scholar_title": "Intelligent risk-based under-ice altitude control for autonomous underwater vehicles",
@@ -19,13 +24,8 @@
       "matched_html_title": "Intelligent risk-based under-ice altitude control for autonomous underwater vehicles"
     },
     {
-      "scholar_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms",
-      "citations": 21,
-      "matched_html_title": "Remote operation of marine robotic systems and next-generation multi-purpose control rooms"
-    },
-    {
       "scholar_title": "Design of a Switching Controller for Tracking AUVs with an ASV",
-      "citations": 11,
+      "citations": 12,
       "matched_html_title": "Design of a Switching Controller for Tracking AUVs with an ASV"
     },
     {

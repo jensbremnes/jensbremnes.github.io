@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-10-13T12:41:06",
-  "total_citations": 161,
+  "fetched_at": "2026-10-15T09:52:01",
+  "total_citations": 162,
   "h_index": 8,
   "papers": [
     {
@@ -59,6 +59,11 @@
       "matched_html_title": "Hybrid observer concept for sensor fusion of sporadic measurements for underwater navigation"
     },
     {
+      "scholar_title": "Seasonal cruise Q2 2021: Cruise report",
+      "citations": 3,
+      "matched_html_title": "Seasonal cruise Q2 2021: Cruise report"
+    },
+    {
       "scholar_title": "Sensor-based hybrid translational observer for underwater navigation",
       "citations": 3,
       "matched_html_title": "Sensor-based hybrid translational observer for underwater navigation"
@@ -67,11 +72,6 @@
       "scholar_title": "Assessing Arctic under sea-ice light regimes and ice algal bio-optical properties using ROV-based hyperspectral imaging",
       "citations": 2,
       "matched_html_title": "Assessing Arctic under sea-ice light regimes and ice algal bio-optical properties using ROV-based hyperspectral imaging"
-    },
-    {
-      "scholar_title": "Seasonal cruise Q2 2021: Cruise report",
-      "citations": 2,
-      "matched_html_title": "Seasonal cruise Q2 2021: Cruise report"
     },
     {
       "scholar_title": "Optimization-based planning and control of AUVs applied to adaptive sampling under ice",

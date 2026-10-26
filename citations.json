@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-10-23T10:01:01",
-  "total_citations": 163,
+  "fetched_at": "2026-10-26T11:02:48",
+  "total_citations": 164,
   "h_index": 8,
   "papers": [
     {
@@ -50,7 +50,7 @@
     },
     {
       "scholar_title": "Evaluating the effect of risk metrics for supporting operational decision-making by autonomous surface vehicles",
-      "citations": 5,
+      "citations": 6,
       "matched_html_title": "Evaluating the effect of risk metrics for supporting operational decision-making by autonomous surface vehicles"
     },
     {

@@ -1,6 +1,6 @@
 {
-  "fetched_at": "2026-11-01T11:48:27",
-  "total_citations": 163,
+  "fetched_at": "2026-11-07T11:41:31",
+  "total_citations": 164,
   "h_index": 8,
   "papers": [
     {
@@ -30,7 +30,7 @@
     },
     {
       "scholar_title": "Holistic risk modeling and path planning for marine robotics",
-      "citations": 9,
+      "citations": 10,
       "matched_html_title": "Holistic risk modeling and path planning for marine robotics"
     },
     {
